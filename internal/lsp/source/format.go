@@ -52,7 +52,7 @@ func hasParseErrors(errors []packages.Error) bool {
 }
 
 // Imports formats a file using the goimports tool.
-func Imports(ctx context.Context, f File, rng span.Range) ([]TextEdit, error) {
+func Imports(ctx context.Context, f File) ([]TextEdit, error) {
 	formatted, err := imports.Process(f.GetToken(ctx).Name(), f.GetContent(ctx), nil)
 	if err != nil {
 		return nil, err
